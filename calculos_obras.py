@@ -149,10 +149,13 @@ class aterramento():
 class menu():
 	def __init__(self):
 		# VERIFICANDO ATUALIZACOES
-		if update_file.check_atualizacao("https://github.com/Lucas836-hub/script_obras"):
-			self.titulo("ATUALIZANDO")
-			# ATUALIZANDO O SCRIPT LOCAL
-			update_file.atualizar("https://github.com/Lucas836-hub/script_obras")
+		try:
+			if update_file.check_atualizacao("https://github.com/Lucas836-hub/script_obras"):
+				self.titulo("ATUALIZANDO")
+				# ATUALIZANDO O SCRIPT LOCAL
+				update_file.atualizar("https://github.com/Lucas836-hub/script_obras")
+		except:
+			print("Sem internet")
 
 		ferramentas.limp()
 		ferramentas.titulo("MENU PRINCIPAL")
