@@ -151,9 +151,18 @@ class menu():
 		# VERIFICANDO ATUALIZACOES
 		try:
 			if update_file.check_atualizacao("https://github.com/Lucas836-hub/script_obras"):
-				self.titulo("ATUALIZANDO")
+				self.titulo("ATENÇÃO ATUALIZAÇÃO DETECTADA")
+				while True:
+					sn=input("Você deseja atualizar ? S/N : ").strip().lower().replace("sim", "s").replace("ss", "s").replace(
+			"nao", "n").replace("não", "n").replace("nn", "n")
+					if sn =="n" or sn == "s":
+						break
+					else:
+						print("resposta invalida !!!")
 				# ATUALIZANDO O SCRIPT LOCAL
-				update_file.atualizar("https://github.com/Lucas836-hub/script_obras")
+				if sn == "s":
+					update_file.atualizar("https://github.com/Lucas836-hub/script_obras")
+					update_file.instalador_biblioteca()
 		except:
 			print("Sem internet")
 
